@@ -337,6 +337,9 @@
       background-color: color-mix(in oklab, var(--color-yellow-700) 90%, transparent);
     }
   }
+  .bg-yellow-700\/100 {
+    background-color: var(--color-yellow-700);
+  }
   .p-2 {
     padding: calc(var(--spacing) * 2);
   }
