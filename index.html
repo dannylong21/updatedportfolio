@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Daniel Long Portfolio</title>
   <link href="./src/output.css" rel="stylesheet" />
-  <link rel="preload" as="image" href="./assets/SWEBanner.png" />
+  <link rel="preload" as="image" href="./assets/headshotcircular.png" />
 </head>
-<body class="bg-[#0a192f] text-gray-300 font-sans cursor-none">
+<body class="bg-[#0a192f] text-gray-300 font-sans cursor-none overflow-hidden">
 
   <!-- Loading Spinner -->
   <div id="spinner" class="fixed inset-0 flex flex-col items-center justify-center bg-[#0a192f] z-[9999]">
@@ -25,10 +25,11 @@
     
     <header id="section-header" class="opacity-0 translate-y-4 transition-all duration-1000 ease-out fixed w-full bg-transparent z-50 cursor-none">
       <nav class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center cursor-none">
-        <a href="#" class="text-2xl font-bold text-teal-400 cursor-none">DL</a>
+        <a class="text-2xl font-bold text-teal-400 cursor-none">DL</a>
         <ul class="hidden md:flex space-x-8 cursor-none">
           <li><a href="#section-about" class="hover:text-teal-400 transition cursor-none">About</a></li>
           <li><a href="#section-projects" class="hover:text-teal-400 transition cursor-none">Projects</a></li>
+          <li><a href="#section-skills" class="hover:text-teal-400 transition cursor-none">Skills</a></li>
           <li><a href="#section-contact" class="hover:text-teal-400 transition cursor-none">Contact</a></li>
         </ul>
         <button class="md:hidden text-teal-400 focus:outline-none cursor-none">
@@ -43,26 +44,35 @@
 <div id="mobile-menu" class="md:hidden fixed top-0 left-0 w-full h-full bg-[#0a192f] flex flex-col items-center justify-center space-y-8 text-xl text-teal-400 font-semibold opacity-0 pointer-events-none transition-opacity duration-300 z-40">
   <a href="#section-about" class="hover:text-white transition">About</a>
   <a href="#section-projects" class="hover:text-white transition">Projects</a>
+  <li><a href="#section-skills" class="hover:text-teal-400 transition">Skills</a></li>
   <a href="#section-contact" class="hover:text-white transition">Contact</a>
   <a id="mobile-close" class="hover:text-white transition">Close</a>
 </div>
     </header>
-
+<div id="client-alert" class="fixed bottom-10 right-6 sm:right-10 max-w-sm bg-[#0a192f] text-gray-300 border border-teal-400 rounded-lg shadow-lg p-4 z-50 hidden cursor-none">
+  <div class="flex items-start justify-between gap-4">
+    <p class="text-sm sm:text-base leading-relaxed">
+      If you are a client, <a href="https://www.fiverr.com/s/gD8NR2b" class="text-teal-400 underline hover:text-teal-300">click here</a>.<br />
+      If not, click <span class="text-white font-semibold">X</span> and proceed.
+    </p>
+    <button id="dismiss-alert" class="ml-2 text-teal-400 hover:text-red-400 text-lg font-bold leading-none cursor-none">×</button>
+  </div>
+</div>
     <!-- Hero Section -->
     
  <section id="section-hero" class="hero-section opacity-0 translate-y-4 transition-all duration-1000 ease-out min-h-[90vh] pt-20 flex items-center bg-cover bg-center cursor-none blur-sm" style="background-image: url('./assets/banner.jpg');">
   <div class="w-full h-full bg-[#0a192f]/80 flex items-center justify-center cursor-none">
     <div class="max-w-3xl mx-auto px-2 text-center cursor-none">
-      <img src="./assets/SWEBanner.png" class="m-auto rounded-md w-[400px] sm:w-[95%] fade-target" />
-      <p class="text-teal-400 tracking-wide fade-target text-[20px]">Welcome to my world</p>
+      <img src="./assets/headshotcircular.png" class="m-auto rounded-md w-[400px] sm:w-[80%] fade-target" />
+      <p class="text-teal-400 tracking-wide fade-target text-[20px]">Clean Code. Clear Design. Client-Ready.</p>
       <h1 class="mt-4 text-5xl sm:text-7xl font-bold text-white fade-target">
         <span id="typed-text"></span><span id="cursor" class="text-teal-400"></span>
       </h1>
       <p class="mt-6 text-lg leading-relaxed fade-target">
-        A self-taught front-end engineer crafting clean, responsive interfaces and interactive experiences.
+        A front-end engineer crafting clean, responsive interfaces and interactive experiences.
       </p>
       <a href="#projects"
-         class="mt-8 inline-block text-white border-2 border-teal-400 px-6 py-3 rounded 
+         class="mt-8 inline-block text-white border-2 border-teal-400 px-6 py-3 rounded mb-3 
                 hover:bg-teal-400 hover:text-[#0a192f] transition fade-target cursor-none">
         View My Work
       </a>
@@ -211,7 +221,15 @@
         <a href="mailto:danieljaylong@gmail.com"
            class="mt-8 inline-block bg-teal-400 text-[#0a192f] px-6 py-3 rounded font-semibold 
                   hover:bg-teal-300 transition cursor-none">
-          Say Hello
+          Email
+        </a>
+        <a href="tel:+19145709002" class="mt-8 inline-block bg-teal-400 text-[#0a192f] px-6 py-3 rounded font-semibold 
+                  hover:bg-teal-300 transition cursor-none">
+          Call
+        </a>
+        <a href="www.linkedin.com/in/danieljaylong" class="mt-8 inline-block bg-teal-400 text-[#0a192f] px-6 py-3 rounded font-semibold 
+                  hover:bg-teal-300 transition cursor-none">
+          LinkedIn
         </a>
       </div>
     </section>
@@ -258,5 +276,6 @@
     <script src="./JavaScript/contentFade.js"></script>
     <script src="./JavaScript/mobileNav.js"></script>
     <script src="./JavaScript/heroEntrance.js"></script>
+    <script src="./JavaScript/clientAlert.js"></script>
 </body>
 </html>

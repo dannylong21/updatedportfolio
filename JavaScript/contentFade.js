@@ -1,33 +1,33 @@
 // JavaScript/contentFade.js
 
 window.addEventListener("DOMContentLoaded", () => {
-  const fadeElements = document.querySelectorAll("section, .fade-on-scroll, .skill-card");
+  const fadeElements = document.querySelectorAll(
+    "section, .fade-on-scroll, .skill-card"
+  );
 
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry, index) => {
-        const bounding = entry.boundingClientRect;
+        const el = entry.target;
 
-        if (entry.intersectionRatio > 0.25) {
-          // Add staggered delay
-          entry.target.style.transitionDelay = `${index * 100}ms`;
-          entry.target.classList.add("fade-in");
-          entry.target.classList.remove("fade-out");
+        if (entry.isIntersecting) {
+          el.style.transitionDelay = `${index * 80}ms`;
+          el.classList.add("fade-in");
+          el.classList.remove("fade-out");
         } else {
-          if (bounding.top < 0) {
-            entry.target.classList.remove("fade-in");
-            entry.target.classList.add("fade-out");
-            entry.target.style.transitionDelay = "0ms";
-          }
+          el.classList.remove("fade-in");
+          el.classList.add("fade-out");
+          el.style.transitionDelay = "0ms";
         }
       });
     },
     {
-      threshold: [0, 0.25, 0.5, 0.75, 1],
+      threshold: 0.2,
     }
   );
 
   fadeElements.forEach((el) => {
+    el.classList.add("fade-out"); // Ensure initial state
     observer.observe(el);
   });
 });

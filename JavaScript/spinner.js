@@ -5,6 +5,9 @@ window.addEventListener("load", () => {
   const bootText = document.getElementById("boot-text");
   const startupSound = document.getElementById("startup-sound");
 
+  // Lock scroll on load
+  document.body.classList.add("overflow-hidden");
+
   const messages = [
     "Loading visual interface...",
     "Initializing system protocols...",
@@ -43,7 +46,12 @@ window.addEventListener("load", () => {
       });
     }
 
-    setTimeout(() => (spinner.style.display = "none"), 500);
+    setTimeout(() => {
+      spinner.style.display = "none";
+
+      // ✅ Unlock scroll after spinner is gone
+      document.body.classList.remove("overflow-hidden");
+    }, 500);
 
     // Animate sections in sequence
     const sections = [
