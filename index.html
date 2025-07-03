@@ -1,100 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./src/output.css" rel="stylesheet">
-    <title>Daniel Long Portfolio</title>
-       <link rel="icon" href="./imgs/pictureofme.PNG" type="image/x-icon">
-       <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JZZW5G602B"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-JZZW5G602B');
-</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daniel Long Portfolio</title>
+  <link href="./src/output.css" rel="stylesheet" />
+  <link rel="preload" as="image" href="./assets/SWEBanner.png" />
 </head>
-<body class="bg-yellow-700/40">
-    <div id="header" class="flex justify-center p-4">
-        <div id="text">
-        <p id="logo" class="text-white font-bold text-[18px]">Freelance Website Developer</p>
-        </div>
-    </div>
+<body class="bg-[#0a192f] text-gray-300 font-sans cursor-none">
+
+  <!-- Loading Spinner -->
+  <div id="spinner" class="fixed inset-0 flex flex-col items-center justify-center bg-[#0a192f] z-[9999]">
+    <div class="animate-spin rounded-full h-16 w-16 border-4 border-teal-400 border-t-transparent mb-6"></div>
+    <p id="boot-text" class="text-teal-400 text-sm font-mono tracking-wider"></p>
+  </div>
+
+  <!-- Startup Sound -->
+  <audio id="startup-sound" src="./sounds/startup.mp3" preload="auto"></audio>
+
+  <!-- Site Content -->
+  <div id="site-content">
+
+    <!-- Header -->
     
-    <div id="image" class="flex justify-center">
-            <img class="bg-black border-white border-solid border-3 rounded-[25%] h-[150px]" src="./imgs/pictureofme.PNG" />
+    <header id="section-header" class="opacity-0 translate-y-4 transition-all duration-1000 ease-out fixed w-full bg-transparent z-50 cursor-none">
+      <nav class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center cursor-none">
+        <a href="#" class="text-2xl font-bold text-teal-400 cursor-none">DL</a>
+        <ul class="hidden md:flex space-x-8 cursor-none">
+          <li><a href="#section-about" class="hover:text-teal-400 transition cursor-none">About</a></li>
+          <li><a href="#section-projects" class="hover:text-teal-400 transition cursor-none">Projects</a></li>
+          <li><a href="#section-contact" class="hover:text-teal-400 transition cursor-none">Contact</a></li>
+        </ul>
+        <button class="md:hidden text-teal-400 focus:outline-none cursor-none">
+          <svg xmlns="http://www.w3.org/2000/svg" id="mobile-toggle" class="h-6 w-6 cursor-none" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </nav>
+      <!-- Mobile Menu -->
+<div id="mobile-menu" class="md:hidden fixed top-0 left-0 w-full h-full bg-[#0a192f] flex flex-col items-center justify-center space-y-8 text-xl text-teal-400 font-semibold opacity-0 pointer-events-none transition-opacity duration-300 z-40">
+  <a href="#section-about" class="hover:text-white transition">About</a>
+  <a href="#section-projects" class="hover:text-white transition">Projects</a>
+  <a href="#section-contact" class="hover:text-white transition">Contact</a>
+  <a id="mobile-close" class="hover:text-white transition">Close</a>
+</div>
+    </header>
+
+    <!-- Hero Section -->
+    
+ <section id="section-hero" class="hero-section opacity-0 translate-y-4 transition-all duration-1000 ease-out min-h-[90vh] pt-20 flex items-center bg-cover bg-center cursor-none blur-sm" style="background-image: url('./assets/banner.jpg');">
+  <div class="w-full h-full bg-[#0a192f]/80 flex items-center justify-center cursor-none">
+    <div class="max-w-3xl mx-auto px-2 text-center cursor-none">
+      <img src="./assets/SWEBanner.png" class="m-auto rounded-md w-[400px] sm:w-[95%] fade-target" />
+      <p class="text-teal-400 tracking-wide fade-target text-[20px]">Welcome to my world</p>
+      <h1 class="mt-4 text-5xl sm:text-7xl font-bold text-white fade-target">
+        <span id="typed-text"></span><span id="cursor" class="text-teal-400"></span>
+      </h1>
+      <p class="mt-6 text-lg leading-relaxed fade-target">
+        A self-taught front-end engineer crafting clean, responsive interfaces and interactive experiences.
+      </p>
+      <a href="#projects"
+         class="mt-8 inline-block text-white border-2 border-teal-400 px-6 py-3 rounded 
+                hover:bg-teal-400 hover:text-[#0a192f] transition fade-target cursor-none">
+        View My Work
+      </a>
+    </div>
+  </div>
+</section>
+
+    <!-- About Section -->
+    
+    <section id="section-about" class="opacity-0 translate-y-4 transition-all duration-1000 ease-out py-20 bg-[#112240] cursor-none">
+      <div class="max-w-4xl mx-auto px-6 cursor-none">
+        <h2 class="text-3xl font-bold text-white cursor-none">About Me</h2>
+        <p class="mt-4 text-gray-400 cursor-none">
+          I’m a front-end developer with a sharp eye for design and a deep respect for usability. 
+          After two years of production experience and six years as an FDNY EMT, I’ve learned how to solve high-stakes problems with calm precision and human focus. 
+          I specialize in HTML, Tailwind CSS, and JavaScript — building responsive, client-ready websites that not only look great, but perform with purpose.
+          My work includes full-stack solutions for real businesses, 
+          like a professional landscaping site built with Supabase, dynamic UI components, and real-time features. 
+          Every line of code is deployed through GitHub workflows and mobile-tested for users on the go. I approach each project like a product: clean, accessible, fast — and built to convert.
+
+        </p>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+
+<section id="section-projects" class="opacity-0 translate-y-4 transition-all duration-1000 ease-out py-20 cursor-none">
+  <div class="max-w-6xl mx-auto px-6 cursor-none">
+    <h2 class="text-3xl font-bold text-white cursor-none">Projects</h2>
+    <div class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 cursor-none">
+
+<!-- Project Card 1 -->
+<div class="bg-[#112240] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition cursor-none">
+  <img src="./imgs/Screenshot (6).png" alt="Long Lawn Care Website" class="w-full h-48 object-cover cursor-none" />
+  <div class="p-6 cursor-none">
+    <h3 class="text-xl font-semibold text-teal-400 cursor-none">Long Lawn Care Professional Website</h3>
+    <p class="mt-2 text-gray-400 text-sm cursor-none">
+      Designed and developed a full-stack web application for a local landscaping business. Built a responsive frontend using HTML, Tailwind CSS, and JavaScript, and implemented backend functionality with Supabase for real-time updates, authentication, and data storage. Integrated contact forms, service listings, and a custom admin dashboard.
+    </p>
+    <a onclick="openModal('modal-project-1')" class="mt-4 inline-block text-teal-400 hover:underline text-sm cursor-none">View Details</a>
+  </div>
+</div>
+
+      <!-- Project Card 2 -->
+      <div class="bg-[#112240] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition cursor-none hidden">
+        <img src="https://via.placeholder.com/400x250" alt="Project 2" class="w-full h-48 object-cover cursor-none" />
+        <div class="p-6 cursor-none">
+          <h3 class="text-xl font-semibold text-teal-400 cursor-none">Project Two</h3>
+          <p class="mt-2 text-gray-400 text-sm cursor-none">Another placeholder for a future project showcase.</p>
+          <a href="#" onclick="openModal('modal-project-2')" class="mt-4 inline-block text-teal-400 hover:underline text-sm cursor-none">View Details</a>
         </div>
-        <div id="text" class="text-white font-sans p-3 text-center">
-            <p class="text-[30px]">Hi, my name is Daniel and I deliver professional <span class="font-bold">Website Development Services.</span></p>
-            <p class="text-[20px] m-3">What I offer:</p>
-                <li class="text-left sm:text-center">Custom Website Designs</li>
-                <li class="text-left sm:text-center">Secure Sites</li>
-                <li class="text-left sm:text-center">Mobile Friendly</li>
-                <li class="text-left sm:text-center">Fast Launch</li>
-                <li class="text-left sm:text-center">10% First order discounts</li>
-                <li class="text-left sm:text-center">30% Referal Discount<p class="text-[10px]">Note: Referal Discount and First order discount are not combinable</p></li>
+      </div>
+
+      <!-- Project Card 3 -->
+      <div class="bg-[#112240] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition cursor-none hidden">
+        <img src="https://via.placeholder.com/400x250" alt="Project 3" class="w-full h-48 object-cover cursor-none" />
+        <div class="p-6 cursor-none">
+          <h3 class="text-xl font-semibold text-teal-400 cursor-none">Project Three</h3>
+          <p class="mt-2 text-gray-400 text-sm cursor-none">Placeholder content for a third project card.</p>
+          <a href="#" onclick="openModal('modal-project-3')" class="mt-4 inline-block text-teal-400 hover:underline text-sm cursor-none">View Details</a>
         </div>
-        <div id="dividerline" class="text-white text-center m-2">______________</div>
-        <div class="herocontainer">
-        <div id="hero" class="relative h-[200px] p-2 flex justify-center m-5 sm:m-10 sm:h-[400px]" style="background-image:url('./imgs/bland.png');background-position:bottom;background-size:cover;">
-            <div id="divider" class="absolute top-0 flex items-center backdrop-brightness-50 w-full h-full">
-            <p id="text" class="flex text-white m-auto">Web design should be a minimalistic process</p>
-        </div>
-        </div>
-        <p class="p-2 text-white sm:text-center">A modern website is designed to <span class="font-bold">functional, orderly, effective, and attractive</span></p>
-        </div>
-        <div id="dividerline" class="text-white text-center m-2">______________</div>
-        <div id="portfolioshowcasecontainer" class="flex flex-col h-fit justify-center p-2">
-            <p id="header" class="text-center text-white font-bold text-[25px]">Portfolio Showcase</p>
-            <div id="vidcontainer" class="flex flex-row justify-center h-fit">
-                <div id="video1" class="flex flex-col justify-center h-fit box-shadow-lg shadow-black">
-            <p id="vidtitle" class="text-center text-white font-bold text-[20px] font-sans ">Long Lawn Care</p>
-            <p id="roles" class="text-white font-sans text-[18px] text-center">Roles: Translated branding into clean, professional aesthetics and intuitive layout</p>
-            <video class="p-3 h-[140px] text-center sm:h-[700px]" autoplay loop>
-                <source src="./vids/scroll.mp4">
-            </video>
-                </div>
-                <div id="video2" class="flex flex-col justify-center h-fit">
-            <p id="vidtitle" class="text-center text-white font-bold text-[20px] font-sans">Administration Panel</p>
-            <p id="roles" class="text-white font-sans text-[18px] text-center">Roles: Managed backend connection, made backend secure. Made sure the forms on the site went into the database</p>
-            <video class="p-3 h-[140px] text-center sm:h-[700px]" autoplay loop>
-                <source src="./vids/admindash.mp4">
-            </video>
-                </div>
-        </div>
-        </div>
-        <div id="dividerline" class="text-white text-center m-2">______________</div>
-        <div id="contact" class="flex flex-col justify-center">
-            <p id="contactheader" class="text-center font-bold text-[20px] text-white">Get a quote from me!</p>
-            <div id="buttoncontainer" class="flex flex-row justify-around mt-2 sm:justify-center sm:gap-3">
-            <button id="button" class="border-solid m-1 border-3 border-white p-3 text-center w-[100px] shadow-md shadow-black text-white rounded-md font-bold cursor-pointer hover:shadow-none transition-all"><a href="mailto:danieljayong@gmail.com">Email</a></button>
-            <button id="button" class="border-solid m-1 border-3 border-white p-3 text-center w-[100px] shadow-md shadow-black text-white rounded-md font-bold cursor-pointer hover:shadow-none transition-all"><a href="https://www.fiverr.com/s/YRwKbRK" target="_blank">Fiverr</a></button>
-            <button id="button" class="border-solid m-1 border-3 border-white p-3 text-center w-[100px] shadow-md shadow-black text-white rounded-md font-bold cursor-pointer hover:shadow-none transition-all"><a href="https://www.linkedin.com/in/danieljaylong" target="_blank">LinkedIn</a></button>
-            <button id="button" class="border-solid m-1 border-3 border-white p-3 text-center w-[100px] shadow-md shadow-black text-white rounded-md font-bold cursor-pointer hover:shadow-none transition-all"><a href="tel:+1(646)585-5907">Text</a></button>
-            </div>
-        </div>
-                <div id="dividerline" class="text-white text-center m-2">______________</div>
-        <div id="pricingsection" class="flex flex-col m-10 text-white justify-center rounded-md bg-yellow-700/30">
-            <div id="sectioncontainer" class="flex flex-col text-center justify-center m-auto">
-                <p id="prices" class="text-[30px]">Prices</p>
-                <p class="p-2">Websites have a charge of $400 and an upfront payment that is dependent on the complexity of the project</p>
-                <p class="text-[10px]">Note: Monthly payments are not included in initial payment when creating website, these payments are charged <strong>after</strong> the product is made and delivered to your satisfaction. In addition, the packages are <strong>not</strong> required to complete purchase, you have the option to opt out.</p>
-                <div id="dividerline" class="text-white text-center m-2">______________</div>
-                <p id="prices" class="text-[30px]">Monthly Maintenance</p>
-                <p class="text-[20px] font-bold">E-Commerce Maintenance</p>
-                <p class="text-center font-serif text-[30px]">$300/Mo</p>
-                <p id="price" class="p-2">This is explicitly for websites that require me as the developer to remove and add products manually and to optimize the site <strong>after</strong> the product has been delivered</p>
-                <div id="dividerline" class="text-white text-center m-2">______________</div>
-                <p class="text-[20px] font-bold">Downtime Maintenance</p>
-                <p class="text-center font-serif text-[30px]">$100/Mo</p>
-                <p id="price" class="p-2">This package can be activated after the website has been delivered. If there are any interruptions to the website during any times of non-scheduled maintenance, I will promptly restore the website to its functional state.</p>
-                <div id="dividerline" class="text-white text-center m-2">______________</div>
-                <p class="text-[20px] font-bold">Downtime Maintenance</p>
-                <p class="text-center font-serif text-[30px]">$50/Mo</p>
-                <p id="price" class="p-2">This package is activated for LMS websites (Learning Management System). For any courses or learning material added to the website to keep it up to date with whatever changes the customer requests. </p>
-            </div>
-        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- Skills Section -->
+<section id="section-skills" class="opacity-0 translate-y-4 transition-all duration-1000 ease-out py-20 bg-[#112240] cursor-none">
+  <div class="max-w-6xl mx-auto px-6 text-center cursor-none">
+    <h2 class="text-3xl font-bold text-white cursor-none">Skills</h2>
+    <p class="mt-4 text-gray-400 cursor-none">
+      These are the core technologies I use to build responsive, performant, and client-focused web applications.
+    </p>
+
+    <div class="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-3 cursor-none">
+
+      <!-- JavaScript -->
+      <div class="skill-card flex flex-col items-center bg-[#0a192f] p-6 rounded-lg shadow-lg hover:shadow-xl transition cursor-none">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript" class="w-16 h-16 mb-4" />
+        <h3 class="text-xl font-semibold text-teal-400 cursor-none">JavaScript</h3>
+        <p class="mt-2 text-gray-400 text-sm cursor-none">
+          I use JavaScript to power dynamic features like scroll animations, modals, and mobile navigation — delivering seamless interactivity that keeps users engaged and clients impressed.
+        </p>
+      </div>
+
+      <!-- React -->
+      <div class="skill-card flex flex-col items-center bg-[#0a192f] p-6 rounded-lg shadow-lg hover:shadow-xl transition cursor-none">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React" class="w-16 h-16 mb-4" />
+        <h3 class="text-xl font-semibold text-teal-400 cursor-none">React</h3>
+        <p class="mt-2 text-gray-400 text-sm cursor-none">
+          I use React to build scalable, component-driven UIs. It’s my go-to for creating reusable layouts and managing state in client projects and personal builds.
+        </p>
+      </div>
+
+      <!-- Tailwind CSS -->
+      <div class="skill-card flex flex-col items-center bg-[#0a192f] p-6 rounded-lg shadow-lg hover:shadow-xl transition cursor-none">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Tailwind_CSS_logo.svg/512px-Tailwind_CSS_logo.svg.png" alt="Tailwind CSS" class="w-full h-16 mb-4" />
+        <h3 class="text-xl font-semibold text-teal-400 cursor-none">Tailwind CSS</h3>
+        <p class="mt-2 text-gray-400 text-sm cursor-none">
+          Tailwind powers the clean, responsive design of this portfolio. I use it to rapidly prototype and fine-tune layouts that look sharp on every screen — a key factor in attracting clients and recruiters.
+        </p>
+      </div>
+
+      <!-- Supabase -->
+      <div class="skill-card flex flex-col items-center bg-[#0a192f] p-6 rounded-lg shadow-lg hover:shadow-xl transition cursor-none">
+        <img src="https://www.vectorlogo.zone/logos/supabase/supabase-ar21~bgwhite.svg" alt="Supabase" class="w-16 h-16 mb-4" />
+        <h3 class="text-xl font-semibold text-teal-400 cursor-none">Supabase</h3>
+        <p class="mt-2 text-gray-400 text-sm cursor-none">
+          I use Supabase to handle real-time data, authentication, and backend logic. It powers features like contact forms, admin dashboards, and secure client data workflows in my full-stack builds.
+        </p>
+      </div>
+
+      <!-- GitHub -->
+      <div class="skill-card flex flex-col items-center bg-[#0a192f] p-6 rounded-lg shadow-lg hover:shadow-xl transition cursor-none">
+        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" class="w-16 h-16 mb-4" />
+        <h3 class="text-xl font-semibold text-teal-400 cursor-none">GitHub</h3>
+        <p class="mt-2 text-gray-400 text-sm cursor-none">
+          I use GitHub to manage version control, collaborate on code, and showcase my work. Every project I build is tracked, documented, and deployed with clean commits and clear structure.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- Resume Section -->
+<section id="section-resume" class="opacity-0 translate-y-4 transition-all duration-1000 ease-out py-20 bg-[#0a192f] cursor-none">
+  <div class="max-w-4xl mx-auto px-6 text-center cursor-none">
+    <h2 class="text-3xl font-bold text-white cursor-none">Resume</h2>
+    <p class="mt-4 text-gray-400 cursor-none">
+      Download a copy of my resume to learn more about my experience and skills.
+    </p>
+    <a href="./assets/Daniel_Long_Resume.pdf" target="_blank"
+       class="mt-8 inline-block bg-teal-400 text-[#0a192f] px-6 py-3 rounded font-semibold 
+              hover:bg-teal-300 transition cursor-none">
+      View Resume (PDF)
+    </a>
+  </div>
+</section>
+    <!-- Contact Section -->
+    <section id="section-contact" class="opacity-0 translate-y-4 transition-all duration-1000 ease-out py-20 bg-[#112240] cursor-none">
+      <div class="max-w-4xl mx-auto px-6 text-center cursor-none">
+        <h2 class="text-3xl font-bold text-white cursor-none">Get In Touch</h2>
+        <p class="mt-4 text-gray-400 cursor-none">
+          Interested in working together? Send me a message and let's create something amazing.
+        </p>
+        <a href="mailto:danieljaylong@gmail.com"
+           class="mt-8 inline-block bg-teal-400 text-[#0a192f] px-6 py-3 rounded font-semibold 
+                  hover:bg-teal-300 transition cursor-none">
+          Say Hello
+        </a>
+      </div>
+    </section>
+
+    
+  </div>
+  <!-- Project Modals -->
+<div id="modal-overlay" class="fixed inset-0 bg-black bg-opacity-70 hidden items-center justify-center z-[9998] cursor-none"></div>
+
+<!-- Modal 1: Long Lawn Care -->
+<div id="modal-project-1" class="fixed inset-0 flex items-center justify-center z-[9999] hidden cursor-none">
+  <div class="bg-[#112240] text-gray-300 rounded-lg shadow-lg max-w-2xl w-full p-8 relative">
+    <button class="absolute top-4 right-4 text-white text-2xl cursor-none" onclick="closeModal()">✕</button>
+    <h3 class="text-2xl font-bold text-teal-400 mb-4">Long Lawn Care Professional Website</h3>
+    <p class="text-sm leading-relaxed">
+      Designed and developed a full-stack web application for a local landscaping business. Built a responsive frontend using HTML, Tailwind CSS, and JavaScript, and implemented backend functionality with Supabase for real-time updates, authentication, and data storage. Integrated contact forms, service listings, and a custom admin dashboard.
+    </p>
+    <a href="https://longlawncare.netlify.app" target="_blank" rel="noopener noreferrer" class="mt-6 inline-block text-teal-400 hover:underline text-sm cursor-none">Visit Live Site</a>
+  </div>
+</div>
+
+<!-- Modal 2: Placeholder -->
+<div id="modal-project-2" class="fixed inset-0 flex items-center justify-center z-[9999] hidden cursor-none">
+  <div class="bg-[#112240] text-gray-300 rounded-lg shadow-lg max-w-2xl w-full p-8 relative">
+    <button class="absolute top-4 right-4 text-white text-2xl cursor-none" onclick="closeModal()">✕</button>
+    <h3 class="text-2xl font-bold text-teal-400 mb-4">Project Two</h3>
+    <p class="text-sm leading-relaxed">[Placeholder for future project details]</p>
+  </div>
+</div>
+
+<!-- Modal 3: Placeholder -->
+<div id="modal-project-3" class="fixed inset-0 flex items-center justify-center z-[9999] hidden cursor-none">
+  <div class="bg-[#112240] text-gray-300 rounded-lg shadow-lg max-w-2xl w-full p-8 relative">
+    <button class="absolute top-4 right-4 text-white text-2xl cursor-none" onclick="closeModal()">✕</button>
+    <h3 class="text-2xl font-bold text-teal-400 mb-4">Project Three</h3>
+    <p class="text-sm leading-relaxed">[Placeholder for future project details]</p>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="./JavaScript/modalLogic.js"></script>
+    <script src="./JavaScript/spinner.js"></script>
+    <script src="./JavaScript/background.js"></script>
+    <script src="./JavaScript/contentFade.js"></script>
+    <script src="./JavaScript/mobileNav.js"></script>
+    <script src="./JavaScript/heroEntrance.js"></script>
 </body>
 </html>
